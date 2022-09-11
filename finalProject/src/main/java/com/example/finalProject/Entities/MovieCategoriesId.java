@@ -9,19 +9,18 @@ import javax.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
-
 @NoArgsConstructor
 @AllArgsConstructor
 @Embeddable
-public class ActorMoviesId implements Serializable{
-	
+public class MovieCategoriesId implements Serializable{
+
 	@ManyToOne
 	@JoinColumn(name = "movieId")
 	public Movie movie;
 	
 	@ManyToOne
-	@JoinColumn(name = "actorId")
-	public Actor actor;
+	@JoinColumn(name = "categoryId")
+	public Category category;
 
 	public Movie getMovie() {
 		return movie;
@@ -31,12 +30,13 @@ public class ActorMoviesId implements Serializable{
 		this.movie = movie;
 	}
 
-	public Actor getActor() {
-		return actor;
+	public Category getCategory() {
+		return category;
 	}
 
-	public void setActor(Actor actor) {
-		this.actor = actor;
+	public void setCategory(Category category) {
+		this.category = category;
 	}
+	
 	
 }

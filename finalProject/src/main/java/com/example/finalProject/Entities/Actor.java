@@ -21,7 +21,8 @@ public class Actor{
     public int actorId;
     public String actorName;
     // add image absolute path
-
+    public String imagePath;
+    
     @OneToMany(mappedBy = "actor")
     List<ActorMoviesRating> actorMoviesRating;
     
