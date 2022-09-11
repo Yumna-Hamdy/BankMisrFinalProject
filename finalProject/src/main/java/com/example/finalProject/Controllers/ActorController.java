@@ -1,5 +1,7 @@
 package com.example.finalProject.Controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,5 +28,9 @@ public class ActorController {  //Actor Controller is redundant but for testing
 	public Actor getbyName(@PathVariable String name) {
 		return actorService.getActorByName(name);
 	}
-	
+	@GetMapping(value = "/getActors")
+	public List<Actor> getAllActors(){
+		return actorService.getActorsList();
+	}
+	// find movies the actor participated in by actor id
 }

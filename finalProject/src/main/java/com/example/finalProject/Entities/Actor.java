@@ -25,6 +25,6 @@ public class Actor{
     public String imagePath;
     
 //    @OneToMany(mappedBy = "actor")
-//    List<UserMoviesRating> actorMoviesRating;
+//    List<ActorMovies> actorMovies;
     
 }

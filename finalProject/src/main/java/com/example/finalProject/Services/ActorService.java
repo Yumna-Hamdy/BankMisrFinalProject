@@ -1,5 +1,9 @@
 package com.example.finalProject.Services;
 
+import java.util.List;
+
+import javax.management.Query;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,6 +24,9 @@ public class ActorService {  // all actor
 		return actorRepository.findByactorNameContainingIgnoreCase(name);
 	}
 	
-	
+	// find actor movies by actor id
+	public List<Actor> getActorsList(){
+		return actorRepository.getActorsList();
+	}
 	
 }
