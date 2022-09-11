@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 public class ActorMovies {
 	//@javax.persistence.Id
 	@EmbeddedId
-	public ActorMoviesId Id;	
+	public ActorMoviesId actorMoviesId;	
 	
 	
 //	private int rating;

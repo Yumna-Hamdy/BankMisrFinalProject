@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.finalProject.Entities.Actor;
 import com.example.finalProject.Repositories.ActorRepository;
+import com.example.finalProject.Repositories.tempInterface;
 
 @Service
 public class ActorService {  // all actor 
@@ -27,6 +28,9 @@ public class ActorService {  // all actor
 	// find actor movies by actor id
 	public List<Actor> getActorsList(){
 		return actorRepository.getActorsList();
+	}
+	public List<tempInterface> getActorMovies(int id){
+		return actorRepository.getActorMovies(id);
 	}
 	
 }

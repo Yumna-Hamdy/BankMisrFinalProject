@@ -27,6 +27,19 @@ public class Movie {
 	//public int time;
 	public int year;
 	public String description;
+	
+	public int getMovieId() {
+		return movieId;
+	}
+	public void setMovieId(int movieId) {
+		this.movieId = movieId;
+	}
+	public String getMovieName() {
+		return movieName;
+	}
+	public void setMovieName(String movieName) {
+		this.movieName = movieName;
+	}
 	public String image;
 	public String video;
 //	@OneToMany(mappedBy = "movie")

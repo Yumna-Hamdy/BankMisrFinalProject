@@ -24,7 +24,7 @@ public class Actor{
     // add image absolute path
     public String imagePath;
     
-//    @OneToMany(mappedBy = "actor")
+//    @OneToMany(mappedBy = "actorId")
 //    List<ActorMovies> actorMovies;
     
 }

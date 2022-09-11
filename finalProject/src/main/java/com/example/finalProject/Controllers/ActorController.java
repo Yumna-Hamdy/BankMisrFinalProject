@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.finalProject.Entities.Actor;
+import com.example.finalProject.Repositories.tempInterface;
 import com.example.finalProject.Services.ActorService;
 
 @RestController
@@ -33,4 +34,9 @@ public class ActorController {  //Actor Controller is redundant but for testing
 		return actorService.getActorsList();
 	}
 	// find movies the actor participated in by actor id
+	@GetMapping(value= {"/actorMovies/{id}"})
+	public List<tempInterface> getActorMovies(@PathVariable int id){
+		return actorService.getActorMovies(id);
+	}
+	
 }
