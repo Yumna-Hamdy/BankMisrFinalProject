@@ -7,8 +7,7 @@ import javax.persistence.Entity;
 public class ActorMoviesRating {
 	//@javax.persistence.Id
 	@EmbeddedId
-	public ActorMoviesId Id;
-	
+	public ActorMoviesId Id;	
 	private int rating;
 
 	public int getRating() {

@@ -16,18 +16,18 @@ public class MovieCategoriesId implements Serializable{
 
 	@ManyToOne
 	@JoinColumn(name = "movieId")
-	public Movie movie;
+	private Movie movie1;
 	
 	@ManyToOne
 	@JoinColumn(name = "categoryId")
-	public Category category;
+	private Category category;
 
 	public Movie getMovie() {
-		return movie;
+		return movie1;
 	}
 
 	public void setMovie(Movie movie) {
-		this.movie = movie;
+		this.movie1 = movie;
 	}
 
 	public Category getCategory() {

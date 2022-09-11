@@ -26,6 +26,6 @@ public class Movie {
 	public String director;
 	//public int time;
 	public int year;
-	@OneToMany(mappedBy = "actor")
+	@OneToMany(mappedBy = "movie")
 	List<ActorMoviesRating> actorMoviesRating;
 }
