@@ -1,12 +1,12 @@
-package com.example.finalProject.Entities;
+//package com.example.finalProject.Entities;
 
 //import lombok.*;
 //import org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration;
 //import org.springframework.security.core.GrantedAuthority;
 //import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.persistence.*;
-import java.util.Collection;
+//import javax.persistence.*;
+//import java.util.Collection;
 //@Entity
 //@Table(name ="user")
 //@Data

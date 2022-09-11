@@ -14,14 +14,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Embeddable
 public class ActorMoviesId implements Serializable{
-	
 	@ManyToOne
 	@JoinColumn(name = "movieId")
 	public Movie movie;
 	
 	@ManyToOne
 	@JoinColumn(name = "actorId")
-	public Actor actor;
+	public Actor actor; //temporarily actor till user is completed
 
 	public Movie getMovie() {
 		return movie;

@@ -9,9 +9,10 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -23,7 +24,7 @@ public class Actor{
     // add image absolute path
     public String imagePath;
     
-    @OneToMany(mappedBy = "actor")
-    List<ActorMoviesRating> actorMoviesRating;
+//    @OneToMany(mappedBy = "actor")
+//    List<UserMoviesRating> actorMoviesRating;
     
 }

@@ -8,10 +8,10 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -26,6 +26,6 @@ public class Movie {
 	public String director;
 	//public int time;
 	public int year;
-	@OneToMany(mappedBy = "movie")
-	List<ActorMoviesRating> actorMoviesRating;
+//	@OneToMany(mappedBy = "movie")
+//	List<ActorMoviesRating> actorMoviesRating;
 }

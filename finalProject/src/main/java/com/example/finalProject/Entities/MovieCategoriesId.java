@@ -13,7 +13,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Embeddable
 public class MovieCategoriesId implements Serializable{
-
 	@ManyToOne
 	@JoinColumn(name = "movieId")
 	private Movie movie1;
