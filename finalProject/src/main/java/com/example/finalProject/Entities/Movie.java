@@ -26,6 +26,9 @@ public class Movie {
 	public String director;
 	//public int time;
 	public int year;
+	public String description;
+	public String image;
+	public String video;
 //	@OneToMany(mappedBy = "movie")
 //	List<ActorMoviesRating> actorMoviesRating;
 }

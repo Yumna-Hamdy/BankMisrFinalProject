@@ -6,7 +6,9 @@ import com.example.finalProject.Entities.Actor;
 
 public interface ActorRepository extends JpaRepository<Actor, Integer>{
 
-	Actor findByactorName(String name);
+	Actor findByactorNameContainingIgnoreCase(String name);
+
+	//Actor findByactorName(String name);
 
 
 }

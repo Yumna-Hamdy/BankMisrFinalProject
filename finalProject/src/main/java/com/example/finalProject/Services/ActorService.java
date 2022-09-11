@@ -17,7 +17,7 @@ public class ActorService {  // all actor
 	}
 
 	public Actor getActorByName(String name) {
-		return actorRepository.findByactorName(name);
+		return actorRepository.findByactorNameContainingIgnoreCase(name);
 	}
 	
 	
