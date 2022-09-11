@@ -20,7 +20,7 @@ public class User implements UserDetails {
     @Column(name="user_id")
     private Long id;
     @Column(name="username")
-    private String username;
+    private String userName;
     @Column(name="email")
     private String email;
     @Column(name="password")
@@ -28,8 +28,8 @@ public class User implements UserDetails {
     @Column(name="mobile")
     private String mobile;
 
-    public User(String username, String email, String password, String mobile) {
-        this.username = username;
+    public User(String userName, String email, String password, String mobile) {
+        this.userName = userName;
         this.email = email;
         this.password = password;
         this.mobile = mobile;
@@ -42,12 +42,12 @@ public class User implements UserDetails {
 
     @Override
     public String getPassword() {
-        return null;
+        return password;
     }
 
     @Override
     public String getUsername() {
-        return username;
+        return userName;
     }
 
     @Override
