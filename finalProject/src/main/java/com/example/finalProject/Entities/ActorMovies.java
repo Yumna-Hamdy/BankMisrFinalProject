@@ -15,6 +15,8 @@ public class ActorMovies {
 	//@javax.persistence.Id
 	@EmbeddedId
 	public ActorMoviesId Id;	
+	
+	
 //	private int rating;
 //
 //	public int getRating() {
