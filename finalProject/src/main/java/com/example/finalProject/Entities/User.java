@@ -1,7 +1,6 @@
 package com.example.finalProject.Entities;
 
 import lombok.*;
-import org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -9,7 +8,6 @@ import javax.persistence.*;
 import java.util.Collection;
 @Entity
 @Table(name ="user")
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -27,12 +25,15 @@ public class User implements UserDetails {
     private String password;
     @Column(name="mobile")
     private String mobile;
+    @Column(name="enabled")
+    private Boolean enabled = false;
 
-    public User(String userName, String email, String password, String mobile) {
+    public User(String userName, String email, String password, String mobile, Boolean enabled) {
         this.userName = userName;
         this.email = email;
         this.password = password;
         this.mobile = mobile;
+        this.enabled = enabled;
     }
 
     @Override
