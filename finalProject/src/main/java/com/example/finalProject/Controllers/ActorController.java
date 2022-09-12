@@ -15,7 +15,7 @@ import com.example.finalProject.Repositories.tempInterface;
 import com.example.finalProject.Services.ActorService;
 
 @RestController
-@RequestMapping("/Actor")
+@RequestMapping("/actor")
 public class ActorController {  //Actor Controller is redundant but for testing
 	@Autowired
 	public ActorService actorService;
