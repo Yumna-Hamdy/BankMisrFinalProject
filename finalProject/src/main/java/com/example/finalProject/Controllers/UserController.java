@@ -22,6 +22,11 @@ public class UserController {
         return userService.confirmToken(token);
     }
 
+    @GetMapping(path = "/test")
+    public String test(){
+        return "h3l";
+    }
+
 
 
 }

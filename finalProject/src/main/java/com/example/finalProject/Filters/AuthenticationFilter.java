@@ -34,6 +34,6 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
         Algorithm algorithm = Algorithm.HMAC256("meh");
         String accessToken = JWT.create().withSubject(user.getUsername())
                 .withExpiresAt(new Date(System.currentTimeMillis() + 60*60*1000)).sign(algorithm);
-    response.setHeader("access_token",accessToken);
+    response.setHeader("access_token","Bearer "+accessToken);
     }
 }
