@@ -1,5 +1,4 @@
 package com.example.finalProject.Entities;
-
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
