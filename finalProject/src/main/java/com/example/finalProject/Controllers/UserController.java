@@ -16,6 +16,7 @@ public class UserController {
 
     @PostMapping("/register")
     public ResponseEntity<User> register(@RequestBody User user){
+        //URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/user/register").toUriString());
         return ResponseEntity.ok().body(userService.register(user));
     }
     @GetMapping(path = "confirm")
