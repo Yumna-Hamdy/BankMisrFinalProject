@@ -9,10 +9,11 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @AllArgsConstructor
 @RequestMapping(path= "/user")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://domain2.com", maxAge = 3600)
 public class UserController {
 
     private final UserService userService;
+
     @PostMapping("/register")
     public ResponseEntity<User> register(@RequestBody User user){
         //URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/user/register").toUriString());
