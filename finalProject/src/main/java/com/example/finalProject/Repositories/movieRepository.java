@@ -24,4 +24,5 @@ public interface movieRepository extends JpaRepository<Movie, Integer>{
 
 	@Query(value = queryString,nativeQuery = true)
 	public List<actorInterface> getMovieById(int id);
+	 public List<Movie> findByOrderByReleasedYearAsc();
 }

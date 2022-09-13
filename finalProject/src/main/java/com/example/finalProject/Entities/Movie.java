@@ -23,17 +23,7 @@ public class Movie {
     @Column(name="movie_id")
     private int movieId;
 	
-	public Movie(int movieId, String movieName, String directorName, String category, String image, String description,
-			int releasedYear) {
-		super();
-		this.movieId = movieId;
-		this.movieName = movieName;
-		this.directorName = directorName;
-		this.category = category;
-		this.image = image;
-		this.description = description;
-		this.releasedYear = releasedYear;
-	}
+
 
 
 	
@@ -44,23 +34,7 @@ public class Movie {
 	}
 
 
-	public Movie(int movieId, String movieName, String directorName, String category, String image, String video,
-			String description, int releasedYear, Date addedDate, int time, Set<filmRating> rating) {
-		super();
-		this.movieId = movieId;
-		this.movieName = movieName;
-		this.directorName = directorName;
-		this.category = category;
-		this.image = image;
-		this.video = video;
-		this.description = description;
-		this.releasedYear = releasedYear;
-		this.addedDate = addedDate;
-		this.time = time;
-		this.rating = rating;
-	}
-
-
+	
 
 
 	public int getMovieId() {
@@ -136,6 +110,36 @@ public class Movie {
 	@Column(name = "name", nullable = true)
     private String movieName;
 	
+	@Column(name = "age", nullable = true)
+    private String age;
+	public Movie(int movieId, String movieName, String age, String directorName, String category, String image,
+			String video, String description, int releasedYear, Date addedDate, int time, Set<filmRating> rating) {
+		super();
+		this.movieId = movieId;
+		this.movieName = movieName;
+		this.age = age;
+		this.directorName = directorName;
+		this.category = category;
+		this.image = image;
+		this.video = video;
+		this.description = description;
+		this.releasedYear = releasedYear;
+		this.addedDate = addedDate;
+		this.time = time;
+		this.rating = rating;
+	}
+
+
+	public String getAge() {
+		return age;
+	}
+
+
+	public void setAge(String age) {
+		this.age = age;
+	}
+
+
 	@Column(name = "director", nullable = true)
     private String directorName;
 	
