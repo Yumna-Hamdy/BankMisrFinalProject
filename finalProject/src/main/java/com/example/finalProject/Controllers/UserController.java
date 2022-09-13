@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@AllArgsConstructor @CrossOrigin(origins = "http://localhost:3000")
+@AllArgsConstructor @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping(path= "/user")
 public class UserController {
 
