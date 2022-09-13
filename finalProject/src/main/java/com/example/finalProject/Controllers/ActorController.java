@@ -3,12 +3,7 @@ package com.example.finalProject.Controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.example.finalProject.Entities.Actor;
 import com.example.finalProject.Repositories.tempInterface;
@@ -16,6 +11,7 @@ import com.example.finalProject.Services.ActorService;
 
 @RestController
 @RequestMapping("/actor")
+@CrossOrigin(origins = "*")
 public class ActorController {  //Actor Controller is redundant but for testing
 	@Autowired
 	public ActorService actorService;
