@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.finalProject.Entities.Movie;
 import com.example.finalProject.Repositories.actorInterface;
 import com.example.finalProject.Services.movieService;
+import com.example.finalProject.dto.GetMoviesResponse;
 
 
 
@@ -27,18 +28,23 @@ public class movieController {
 		return movieService.addMovie(t);
 	}
 	@GetMapping(value = {"/{id}"})
-	public Movie movieByID(@PathVariable int id){		
+	public GetMoviesResponse movieByID(@PathVariable int id){		
 		return movieService.getByID(id);
-		// list<Obj[]> = movie
+		
 	}
 	
 	@GetMapping(value = {"/name/{name}"})
-	public List<Movie> movieByID(@PathVariable String name){		
+	public List<Movie> movieByName(@PathVariable String name){		
 		return movieService.getByName(name);
 	}
 	
 	@GetMapping(value = {"/category/{name}"})
 	public List<Movie> movieByCategroy(@PathVariable String name){		
 		return movieService.getByCategory(name);
+	} 
+	
+	@GetMapping(value = {"/movieList"})
+	public List<Movie> movieList(){		
+		return movieService.getMovieList();
 	} 
 }
