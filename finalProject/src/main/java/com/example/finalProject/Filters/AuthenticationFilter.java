@@ -2,7 +2,11 @@ package com.example.finalProject.Filters;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
+import com.example.finalProject.Repositories.UserRepository;
+import com.example.finalProject.Services.UserService;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -16,9 +20,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
+import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
 
 @AllArgsConstructor
 public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
+    @Autowired
+    private UserService userService;
     private AuthenticationManager authenticationManager;
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
@@ -34,6 +44,18 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
         Algorithm algorithm = Algorithm.HMAC256("meh");
         String accessToken = JWT.create().withSubject(user.getUsername())
                 .withExpiresAt(new Date(System.currentTimeMillis() + 60*60*1000)).sign(algorithm);
-    response.setHeader("access_token","Bearer "+accessToken);
+        com.example.finalProject.Entities.User appUser;
+        appUser = userService.getUserByEmail(user.getUsername());
+        System.out.println(appUser);
+        Map<String,String> returnedBody = new HashMap<>();
+        returnedBody.put("access_token", "Bearer "+accessToken);
+        returnedBody.put("username", appUser.getUsername());
+        returnedBody.put("email", appUser.getEmail());
+        returnedBody.put("mobile", appUser.getMobile());
+        response.setContentType(APPLICATION_JSON_VALUE);
+        new ObjectMapper().writeValue(response.getOutputStream(),returnedBody);
+        //response.setHeader("access_token","Bearer "+accessToken);
+
+
     }
 }

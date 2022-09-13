@@ -72,4 +72,7 @@ public class UserService implements UserDetailsService {
                 confirmationToken.getUser().getEmail());
         return "confirmed";
     }
+    public User getUserByEmail(String email){
+        return userRepository.findByEmail(email).get();
+    }
 }
