@@ -126,7 +126,7 @@ public class Movie {
 		this.releasedYear = releasedYear;
 		this.addedDate = addedDate;
 		this.time = time;
-		this.rating = rating;
+		//this.rating = rating;
 	}
 
 
@@ -194,8 +194,8 @@ public class Movie {
 	@Column(name = "Time", nullable = true)
     private int time;
 	
-	@OneToMany(mappedBy = "movie")
-   Set<filmRating> rating;
+//	@OneToMany(mappedBy = "movie")
+//   Set<filmRating> rating;
 
 	
 }
