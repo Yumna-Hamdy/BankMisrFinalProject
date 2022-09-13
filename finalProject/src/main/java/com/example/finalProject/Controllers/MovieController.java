@@ -45,8 +45,8 @@ public class MovieController {
 	}
 	
 	//@GetMapping("/rateMovie/{mid}/")
-	@GetMapping("rateMovie/{mid}/{uid}")
-	public Float mvRating(@PathVariable int mid,@PathVariable int uid,int rating) {
+	@GetMapping("rateMovie/{mid}/{uid}/{rating}")
+	public Float mvRating(@PathVariable int mid,@PathVariable int uid,@PathVariable int rating) {
 		return movieService.rateMovie(mid,uid,rating);
 	}
 
