@@ -40,7 +40,6 @@ public class UserService implements UserDetailsService {
         boolean isValid = emailValidation.test(user.getEmail());
         boolean userExists =userRepository.findByEmail(user.getEmail()).isPresent();
         if (!isValid || userExists){
-            System.out.println("hell");
             throw  new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
         String encodedPassword = bCryptPasswordEncoder.encode(user.getPassword());
