@@ -2,7 +2,7 @@ package com.example.finalProject.Services;
 
 import com.example.finalProject.Entities.User;
 import com.example.finalProject.Repositories.UserRepository;
-import com.example.finalProject.Security.EmailValidation;
+import com.example.finalProject.Security.UserValidation;
 import com.example.finalProject.Token.ConfirmationToken;
 import com.example.finalProject.Token.ConfirmationTokenService;
 import lombok.AllArgsConstructor;
@@ -25,7 +25,7 @@ import java.util.UUID;
 public class UserService implements UserDetailsService {
     @Autowired
     private UserRepository userRepository;
-    private EmailValidation emailValidation;
+    private UserValidation userValidation;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
     private final ConfirmationTokenService confirmationTokenService;
 
@@ -36,10 +36,15 @@ public class UserService implements UserDetailsService {
     }
 
     public User register(User user) {
-        boolean isValid = emailValidation.test(user.getEmail());
+        boolean isEmailValid = userValidation.emailValidation(user.getEmail());
+        boolean isMobileValid = userValidation.mobileValidation(user.getMobile());
         boolean userExists =userRepository.findByEmail(user.getEmail()).isPresent();
-        if (!isValid || userExists){
-            throw  new ResponseStatusException(HttpStatus.BAD_REQUEST);
+        if (userExists){
+            throw  new ResponseStatusException(HttpStatus.BAD_REQUEST,"user with same email already exist");
+        } else if (!isEmailValid) {
+            throw  new ResponseStatusException(HttpStatus.BAD_REQUEST,"E-mail not valid");
+        }else if (!isMobileValid) {
+            throw  new ResponseStatusException(HttpStatus.BAD_REQUEST,"Mobile not valid");
         }
         String encodedPassword = bCryptPasswordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
