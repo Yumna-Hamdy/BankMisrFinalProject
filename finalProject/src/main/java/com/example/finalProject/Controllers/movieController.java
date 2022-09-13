@@ -15,7 +15,7 @@ import com.example.finalProject.dto.GetMoviesResponse;
 
 @RestController
 @RequestMapping(value = "/movies")
-@CrossOrigin(origins = "http://loaclhost:4200", maxAge = 3600)
+@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 
 public class movieController {
 	@Autowired
