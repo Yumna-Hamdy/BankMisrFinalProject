@@ -2,6 +2,7 @@ package com.example.finalProject.Entities;
 
 import java.io.Serializable;
 
+
 import javax.persistence.Embeddable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;

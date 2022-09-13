@@ -14,28 +14,30 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Embeddable
 public class ActorMoviesId implements Serializable{
-	@ManyToOne
-	@JoinColumn(name = "movieId")
-	public Movie movie;
-	
-	@ManyToOne
-	@JoinColumn(name = "actorId")
-	public Actor actor; //temporarily actor till user is completed
-
-	public Movie getMovie() {
-		return movie;
-	}
-
-	public void setMovie(Movie movie) {
-		this.movie = movie;
-	}
-
-	public Actor getActor() {
-		return actor;
-	}
-
-	public void setActor(Actor actor) {
-		this.actor = actor;
-	}
-	
+	private int mId;
+	private int aId;
+//	@ManyToOne
+//	@JoinColumn(name = "movieId")
+//	public Movie movie;
+//	
+//	@ManyToOne
+//	@JoinColumn(name = "actorId")
+//	public Actor actor; //temporarily actor till user is completed
+//
+//	public Movie getMovie() {
+//		return movie;
+//	}
+//
+//	public void setMovie(Movie movie) {
+//		this.movie = movie;
+//	}
+//
+//	public Actor getActor() {
+//		return actor;
+//	}
+//
+//	public void setActor(Actor actor) {
+//		this.actor = actor;
+//	}
+//	
 }

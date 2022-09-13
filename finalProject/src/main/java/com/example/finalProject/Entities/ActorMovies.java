@@ -2,6 +2,9 @@ package com.example.finalProject.Entities;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,6 +19,15 @@ public class ActorMovies {
 	@EmbeddedId
 	public ActorMoviesId actorMoviesId;	
 	
+	@ManyToOne
+	@MapsId("mId")
+	@JoinColumn(name = "movieId")
+	public Movie movie;
+	
+	@ManyToOne
+	@MapsId("aId")
+	@JoinColumn(name = "actorId")
+	public Actor actor; //temporarily actor till user is completed
 	
 //	private int rating;
 //

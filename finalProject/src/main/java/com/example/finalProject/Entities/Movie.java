@@ -41,7 +41,7 @@ public class Movie {
 	public void setMovieName(String movieName) {
 		this.movieName = movieName;
 	}
-	
+
 //	@OneToMany(mappedBy = "movie")
 //	List<ActorMoviesRating> actorMoviesRating;
 }

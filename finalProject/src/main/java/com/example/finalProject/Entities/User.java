@@ -16,9 +16,9 @@ import java.util.Collection;
 @Setter
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue
     @Column(name="user_id")
-    private Long id;
+    public int userId;
     @Column(name="username")
     private String username;
     @Column(name="email")
