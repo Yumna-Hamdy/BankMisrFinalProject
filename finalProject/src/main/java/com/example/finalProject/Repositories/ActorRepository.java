@@ -13,7 +13,7 @@ import com.example.finalProject.Entities.Actor;
 import org.springframework.data.domain.Sort;
 public interface ActorRepository extends JpaRepository<Actor, Integer>{
 
-	Actor findByactorNameContainingIgnoreCase(String name);
+	List<Actor> findByactorNameContainingIgnoreCase(String name);
 	
 	@org.springframework.data.jpa.repository.Query(value = "Select a from Actor a")
 	public List<Actor> getActorsList();

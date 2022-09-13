@@ -15,7 +15,7 @@ import com.example.finalProject.Repositories.tempInterface;
 import com.example.finalProject.Services.ActorService;
 
 @RestController
-@RequestMapping("/Actor")
+@RequestMapping("/actor")
 public class ActorController {  //Actor Controller is redundant but for testing
 	@Autowired
 	public ActorService actorService;
@@ -25,10 +25,16 @@ public class ActorController {  //Actor Controller is redundant but for testing
 		return actorService.addActor(actor);
 	}
 	
-	@GetMapping(value = {"/{name}"})
-	public Actor getbyName(@PathVariable String name) {
+	@GetMapping(value = {"/searchActors/{name}"})
+	public List<Actor> getbyName(@PathVariable String name) {
 		return actorService.getActorByName(name);
 	}
+	
+	@GetMapping(value = {"/getActor/{id}"})
+	public Actor getbyName(@PathVariable int id) {
+		return actorService.getActorById(id);
+	}
+	
 	@GetMapping(value = "/getActors")
 	public List<Actor> getAllActors(){
 		return actorService.getActorsList();
@@ -38,5 +44,6 @@ public class ActorController {  //Actor Controller is redundant but for testing
 	public List<tempInterface> getActorMovies(@PathVariable int id){
 		return actorService.getActorMovies(id);
 	}
+	
 	
 }

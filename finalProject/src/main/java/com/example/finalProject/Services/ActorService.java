@@ -28,7 +28,7 @@ public class ActorService {  // all actor
 		return actorRepository.save(actor);
 	}
 
-	public Actor getActorByName(String name) {
+	public List<Actor> getActorByName(String name) {
 		return actorRepository.findByactorNameContainingIgnoreCase(name);
 	}
 	
@@ -39,6 +39,10 @@ public class ActorService {  // all actor
 	public List<tempInterface> getActorMovies(int id){
 		//return actorRepository.getActorMovies(id,Sort.by(Sort.Direction.ASC, "movieId"));
 		return actorRepository.getActorMovies(id);
+	}
+
+	public Actor getActorById(int id) {
+		return actorRepository.findById(id).orElse(null);
 	}
 	
 }
