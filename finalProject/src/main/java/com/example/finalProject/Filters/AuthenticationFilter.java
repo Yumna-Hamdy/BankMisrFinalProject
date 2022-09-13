@@ -2,6 +2,7 @@ package com.example.finalProject.Filters;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
+import com.example.finalProject.Entities.RegisteredDetails;
 import com.example.finalProject.Services.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
@@ -41,18 +42,22 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authResult) throws IOException {
         User user = (User)authResult.getPrincipal();
         Algorithm algorithm = Algorithm.HMAC256("meh");
+        int expiresIn = 60*60*24;
         String accessToken = JWT.create().withSubject(user.getUsername())
-                .withExpiresAt(new Date(System.currentTimeMillis() + 60*60*1000)).sign(algorithm);
+                .withExpiresAt(new Date(System.currentTimeMillis() + expiresIn)).sign(algorithm);
         com.example.finalProject.Entities.User appUser;
         appUser = userService.getUserByEmail(user.getUsername());
         System.out.println(appUser);
+        RegisteredDetails registeredDetails = new RegisteredDetails("Bearer "+accessToken,
+                appUser.getUsername(),appUser.getEmail(),appUser.getMobile(),appUser.getId(),expiresIn);
+
         Map<String,String> returnedBody = new HashMap<>();
         returnedBody.put("access_token", "Bearer "+accessToken);
         returnedBody.put("username", appUser.getUsername());
         returnedBody.put("email", appUser.getEmail());
         returnedBody.put("mobile", appUser.getMobile());
         response.setContentType(APPLICATION_JSON_VALUE);
-        new ObjectMapper().writeValue(response.getOutputStream(),returnedBody);
+        new ObjectMapper().writeValue(response.getOutputStream(),registeredDetails);
         //response.setHeader("access_token","Bearer "+accessToken);
 
 
