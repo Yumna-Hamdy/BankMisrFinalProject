@@ -10,10 +10,10 @@ import static org.springframework.security.config.Customizer.withDefaults;
 
 public class WebConfig extends WebMvcConfigurerAdapter {
 
-    @Override
-    public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/*").allowedOrigins("").allowedMethods("").allowedHeaders("");
-    }
+//    @Override
+//    public void addCorsMappings(CorsRegistry registry) {
+//        registry.addMapping("/*").allowedOrigins("").allowedMethods("").allowedHeaders("");
+//    }
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.cors(withDefaults());
