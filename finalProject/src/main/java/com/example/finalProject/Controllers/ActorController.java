@@ -22,11 +22,11 @@ public class ActorController {  //Actor Controller is redundant but for testing
 	public Actor addActor(@RequestBody Actor actor) {
 		return actorService.addActor(actor);
 	}
-//	
-//	@GetMapping(value = {"/{name}"})
-//	public List<Actor> getbyName(@PathVariable String name) {
-//		return actorService.getActorByName(name);
-//	}
+	
+	@GetMapping(value = {"/name/{name}"})
+	public List<Actor> getbyName(@PathVariable String name) {
+		return actorService.getActorByName(name);
+	}
 	@GetMapping(value = "/getActors")
 	public List<Actor> getAllActors(){
 		return actorService.getActorsList();

@@ -73,7 +73,7 @@ public class movieService {
 	}
 	
 	public List<Movie> getByCategory(String name) {
-		return movieRepository.findByCategory( name);
+		return movieRepository.findByCategoryContainingIgnoreCase( name);
 	}
 	public List<Movie> getMovieList(){
 		return movieRepository.findByOrderByReleasedYearAsc();
