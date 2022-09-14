@@ -1,24 +1,24 @@
-//package com.example.finalProject.Entities;
-//import lombok.*;
+package com.example.finalProject.Entities;
+import lombok.*;
 //import org.springframework.security.core.GrantedAuthority;
 //import org.springframework.security.core.userdetails.UserDetails;
 //import org.springframework.security.core.GrantedAuthority;
 //import org.springframework.security.core.userdetails.UserDetails;
-//
-//import javax.persistence.*;
-//import java.util.Collection;
-//@Entity
-//@Table(name ="appUser")
-//@NoArgsConstructor
-//@AllArgsConstructor
-//@Getter
-//@Setter
-//public class User  implements UserDetails {
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO)
-//    @Column(name="user_id")
-//    private Long id;
-//
+
+import javax.persistence.*;
+import java.util.Collection;
+@Entity
+@Table(name ="appUser")
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+public class User   {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="user_id")
+    private int id;}
+
 //    @Column(name="username")
 //    private String userName;
 //    @Column(name="email")

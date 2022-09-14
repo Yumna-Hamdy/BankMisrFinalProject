@@ -38,6 +38,7 @@ public class movieService {
 		GetMoviesResponse getMoviesResponse=new GetMoviesResponse();
 		
 		getMoviesResponse.setActors(mapToActorDto(actors));
+		getMoviesResponse.setId(movie.getMovieId());
 		getMoviesResponse.setMovieName(movie.getMovieName());
 		getMoviesResponse.setDirectorName(movie.getDirectorName());
 		getMoviesResponse.setImage(movie.getImage());
@@ -48,7 +49,7 @@ public class movieService {
 		getMoviesResponse.setAddedDate(movie.getAddedDate());
 		getMoviesResponse.setTime(movie.getTime());
 		getMoviesResponse.setAge(movie.getAge());
-		
+		getMoviesResponse.setRating(getRatingofMovie(movie.getMovieId()));
 		return getMoviesResponse;
 	}
 	

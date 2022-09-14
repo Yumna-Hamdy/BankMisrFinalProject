@@ -26,10 +26,23 @@ private int releasedYear;
 private Date addedDate;
 private int time;
 private String age;
+private Float rating;
+private int id;
 
 
-
- public String getAge() {
+ public int getId() {
+	return id;
+}
+public void setId(int id) {
+	this.id = id;
+}
+public Float getRating() {
+	return rating;
+}
+public void setRating(Float rating) {
+	this.rating = rating;
+}
+public String getAge() {
 	return age;
 }
 public void setAge(String string) {
