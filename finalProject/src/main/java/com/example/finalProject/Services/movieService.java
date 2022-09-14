@@ -42,7 +42,7 @@ public class movieService {
 		getMoviesResponse.setDirectorName(movie.getDirectorName());
 		getMoviesResponse.setImage(movie.getImage());
 		getMoviesResponse.setCategory(movie.getCategory());
-		getMoviesResponse.setVideo(movie.getImage());
+		getMoviesResponse.setVideo(movie.getVideo());
 		getMoviesResponse.setDescription(movie.getDescription());
 		getMoviesResponse.setReleasedYear(movie.getReleasedYear());
 		getMoviesResponse.setAddedDate(movie.getAddedDate());
