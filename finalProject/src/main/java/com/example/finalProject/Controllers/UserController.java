@@ -4,6 +4,7 @@ import com.example.finalProject.Entities.User;
 import com.example.finalProject.Services.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
