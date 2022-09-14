@@ -47,11 +47,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
     }
-    @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.cors(withDefaults());
-        return http.build();
-    }
+
 
     @Bean
     CorsConfigurationSource corsConfigurationSource() {
