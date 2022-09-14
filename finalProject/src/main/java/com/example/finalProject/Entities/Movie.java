@@ -32,11 +32,6 @@ public class Movie {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
-
-	
-
-
 	public int getMovieId() {
 		return movieId;
 	}
@@ -113,7 +108,7 @@ public class Movie {
 	@Column(name = "age", nullable = true)
     private String age;
 	public Movie(int movieId, String movieName, String age, String directorName, String category, String image,
-			String video, String description, int releasedYear, Date addedDate, int time, Set<filmRating> rating) {
+			String video, String description, int releasedYear, Date addedDate, int time) {
 		super();
 		this.movieId = movieId;
 		this.movieName = movieName;
@@ -193,9 +188,14 @@ public class Movie {
 	
 	@Column(name = "Time", nullable = true)
     private int time;
+
 	
 //	@OneToMany(mappedBy = "movie")
 //   Set<filmRating> rating;
+//	
+//	@OneToMany(mappedBy = "movie")
+//     Set<MovieUserRatingId> rating;
+
 
 	
 }

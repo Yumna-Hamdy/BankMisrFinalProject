@@ -66,5 +66,32 @@ public class movieService {
 	public List<Movie> getMovieList(){
 		return movieRepository.findByOrderByReleasedYearAsc();
 	}
-	
+	// put rating to the movie 
+		// Select if null get count of user ratings
+		// add rating and sum rating
+		public Float getRatingofMovie(int movie_id) {
+			//Integer isPresent = movieRepository.isUserRatingPresent(movie_id, user_id)
+			Float ratingCount =  movieRepository.getCountofUsersRatedThisMovie(movie_id);
+			//if (rating)
+			Float sumRating = 	movieRepository.getSumofUserRatings(movie_id);
+			Float average = (Float) sumRating/(Float) ratingCount;
+			return average;
+			//getSumofRatingsOfUsers();
+		}
+		
+		public Float rateMovie(int movie_id,int user_id,int rating) {
+			Integer isPresent = movieRepository.isUserRatingPresent(movie_id, user_id);
+			if (isPresent == null) {
+				//return (float) 13.0;
+				movieRepository.InsertRating(movie_id, user_id, rating);
+			}
+			else {
+				Integer into = movieRepository.updateRating(rating, movie_id,user_id);
+			}
+			return getRatingofMovie(movie_id);
+		}
+		
+		public Float getSumOfUserRatings(int movie_id) {
+			return movieRepository.getSumofUserRatings(movie_id);
+		}
 }

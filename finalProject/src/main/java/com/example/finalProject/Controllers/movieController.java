@@ -43,4 +43,19 @@ public class movieController {
 	public List<Movie> movieList(){		
 		return movieService.getMovieList();
 	} 
+	@GetMapping("/getRating/{movie_id}")
+	public Float getMovieRating(@PathVariable  int movie_id) {
+		return movieService.getRatingofMovie(movie_id);
+	}
+	@GetMapping("/getSum/{movie_id}")
+	public Float get(@PathVariable  int movie_id) {
+		return movieService.getSumOfUserRatings(movie_id);
+	}
+	
+	//@GetMapping("/rateMovie/{mid}/")
+	@GetMapping("rateMovie/{mid}/{uid}/{rating}")
+	public Float mvRating(@PathVariable int mid,@PathVariable int uid,@PathVariable int rating) {
+		
+		return movieService.rateMovie(mid,uid,rating);
+}
 }

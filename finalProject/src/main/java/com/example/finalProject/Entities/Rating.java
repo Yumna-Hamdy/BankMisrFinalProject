@@ -46,13 +46,11 @@ import lombok.Setter;
 
 
 @Embeddable
-class filmRatingKey implements Serializable {
+class MovieUserRatingId implements Serializable {
 
     //@Column(name = "user_id")
-    Long uId;
-
-    //@Column(name = "movie_id")
-    Long mId;
+	int mId;
+	int uId;
 
     // standard constructors, getters, and setters
     // hashcode and equals implementation

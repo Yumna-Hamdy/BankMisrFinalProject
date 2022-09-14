@@ -1,3 +1,4 @@
+
 package com.example.finalProject.Services;
 
 import com.example.finalProject.Entities.User;
@@ -83,3 +84,4 @@ public class UserService implements UserDetailsService {
         return userRepository.findByEmail(email).get();
     }
 }
+

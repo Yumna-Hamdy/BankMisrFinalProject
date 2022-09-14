@@ -22,7 +22,7 @@ public class ActorController {  //Actor Controller is redundant but for testing
 	}
 	
 	@GetMapping(value = {"/{name}"})
-	public Actor getbyName(@PathVariable String name) {
+	public List<Actor> getbyName(@PathVariable String name) {
 		return actorService.getActorByName(name);
 	}
 	@GetMapping(value = "/getActors")
