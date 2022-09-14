@@ -32,11 +32,13 @@ public class UserService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String email) {
+
         boolean userExists =userRepository.findByEmail(email).isPresent();
         if (!userExists){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"user with same email not found");
         }
         User user = userRepository.findByEmail(email).get();
+
         return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), new ArrayList<>());
     }
 
