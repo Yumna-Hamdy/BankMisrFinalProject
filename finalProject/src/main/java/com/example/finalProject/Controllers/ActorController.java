@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import com.example.finalProject.Entities.Actor;
 import com.example.finalProject.Repositories.tempInterface;
 import com.example.finalProject.Services.ActorService;
+import com.example.finalProject.dto.GetActorsResponse;
+import com.example.finalProject.dto.GetMoviesResponse;
 
 @RestController
 @RequestMapping("/actor")
@@ -20,11 +22,11 @@ public class ActorController {  //Actor Controller is redundant but for testing
 	public Actor addActor(@RequestBody Actor actor) {
 		return actorService.addActor(actor);
 	}
-	
-	@GetMapping(value = {"/{name}"})
-	public List<Actor> getbyName(@PathVariable String name) {
-		return actorService.getActorByName(name);
-	}
+//	
+//	@GetMapping(value = {"/{name}"})
+//	public List<Actor> getbyName(@PathVariable String name) {
+//		return actorService.getActorByName(name);
+//	}
 	@GetMapping(value = "/getActors")
 	public List<Actor> getAllActors(){
 		return actorService.getActorsList();
@@ -34,5 +36,12 @@ public class ActorController {  //Actor Controller is redundant but for testing
 	public List<tempInterface> getActorMovies(@PathVariable int id){
 		return actorService.getActorMovies(id);
 	}
+	
+	@GetMapping(value = {"/{id}"})
+	public GetActorsResponse actorByID(@PathVariable int id){		
+		return actorService.getByID(id);
+		
+	}
+	
 	
 }

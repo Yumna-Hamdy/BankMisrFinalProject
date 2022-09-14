@@ -51,7 +51,25 @@ public class Actor{
     @Id
     @GeneratedValue
     public int actorId;
-    public String actorName;
+    public int getActorId() {
+		return actorId;
+	}
+	public void setActorId(int actorId) {
+		this.actorId = actorId;
+	}
+	public String getActorName() {
+		return actorName;
+	}
+	public void setActorName(String actorName) {
+		this.actorName = actorName;
+	}
+	public String getActorImagePath() {
+		return actorImagePath;
+	}
+	public void setActorImagePath(String actorImagePath) {
+		this.actorImagePath = actorImagePath;
+	}
+	public String actorName;
     // add image absolute path
     public String actorImagePath;
     
