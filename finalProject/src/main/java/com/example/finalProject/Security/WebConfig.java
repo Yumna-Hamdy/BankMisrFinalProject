@@ -14,9 +14,9 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/*").allowedOrigins("").allowedMethods("").allowedHeaders("");
     }
-    @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.cors(withDefaults());
-        return http.build();
-    }
+//    @Bean
+//    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+//        http.cors(withDefaults());
+//        return http.build();
+//    }
 }
