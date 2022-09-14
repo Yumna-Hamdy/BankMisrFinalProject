@@ -12,7 +12,6 @@ import com.example.finalProject.Services.ActorService;
 @RestController
 @RequestMapping("/actor")
 @CrossOrigin(origins = "*")
-
 public class ActorController {  //Actor Controller is redundant but for testing
 	@Autowired
 	public ActorService actorService;

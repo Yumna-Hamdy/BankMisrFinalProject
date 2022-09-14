@@ -16,7 +16,6 @@ import com.example.finalProject.dto.GetMoviesResponse;
 @RestController
 @RequestMapping(value = "/movies")
 @CrossOrigin(origins = "*")
-
 public class movieController {
 	@Autowired
 	movieService movieService;
