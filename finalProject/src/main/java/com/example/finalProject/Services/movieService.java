@@ -39,6 +39,16 @@ public class movieService {
 		
 		getMoviesResponse.setActors(mapToActorDto(actors));
 		getMoviesResponse.setMovieName(movie.getMovieName());
+		getMoviesResponse.setDirectorName(movie.getDirectorName());
+		getMoviesResponse.setImage(movie.getImage());
+		getMoviesResponse.setCategory(movie.getCategory());
+		getMoviesResponse.setVideo(movie.getImage());
+		getMoviesResponse.setDescription(movie.getDescription());
+		getMoviesResponse.setReleasedYear(movie.getReleasedYear());
+		getMoviesResponse.setAddedDate(movie.getAddedDate());
+		getMoviesResponse.setTime(movie.getTime());
+		getMoviesResponse.setAge(movie.getAge());
+		
 		return getMoviesResponse;
 	}
 	
@@ -50,6 +60,8 @@ public class movieService {
 		{
 			ActorDto actorDto= new ActorDto();
 			actorDto.setActorName(actors.get(i).actorName);
+			actorDto.setActorImagePath(actors.get(i).actorImagePath);
+			actorDto.setActorId(actors.get(i).actorId);
 			actorDtoList.add(actorDto);
 		}
 		return actorDtoList;

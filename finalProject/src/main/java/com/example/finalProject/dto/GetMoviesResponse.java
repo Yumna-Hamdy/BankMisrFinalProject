@@ -25,16 +25,15 @@ private String description;
 private int releasedYear;
 private Date addedDate;
 private int time;
-private int rating;
-private int age;
+private String age;
 
 
 
- public int getAge() {
+ public String getAge() {
 	return age;
 }
-public void setAge(int age) {
-	this.age = age;
+public void setAge(String string) {
+	this.age = string;
 }
 public String getDirectorName() {
 	return directorName;
@@ -78,12 +77,7 @@ public int getTime() {
 public void setTime(int time) {
 	this.time = time;
 }
-public int getRating() {
-	return rating;
-}
-public void setRating(int rating) {
-	this.rating = rating;
-}
+
 private List<ActorDto>actors;
 public String getMovieName() {
 	return movieName;
