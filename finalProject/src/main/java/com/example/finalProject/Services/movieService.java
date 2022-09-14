@@ -85,7 +85,9 @@ public class movieService {
 		public Float getRatingofMovie(int movie_id) {
 			//Integer isPresent = movieRepository.isUserRatingPresent(movie_id, user_id)
 			Float ratingCount =  movieRepository.getCountofUsersRatedThisMovie(movie_id);
-			//if (rating)
+			if (ratingCount == 0) {
+				return ratingCount;
+			}
 			Float sumRating = 	movieRepository.getSumofUserRatings(movie_id);
 			Float average = (Float) sumRating/(Float) ratingCount;
 			return average;
