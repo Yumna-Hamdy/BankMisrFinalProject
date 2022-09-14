@@ -32,7 +32,7 @@ public class UserService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String email) {
-        User user = userRepository.findByEmail(email).orElseThrow(()->new ResponseStatusException(HttpStatus.BAD_REQUEST,"user with same email not found"));
+        User user = userRepository.findByEmail(email).orElseThrow(()->new IllegalStateException("email not valid"));
         return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), new ArrayList<>());
     }
 
