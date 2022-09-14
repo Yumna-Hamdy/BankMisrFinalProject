@@ -17,13 +17,19 @@ import lombok.NoArgsConstructor;
 public class MovieUserRating {
 	@EmbeddedId
 	public MovieUserRatingId movieUserRatingId;
-	
+
+
+
 	public int rating;
 	@ManyToOne
 	@MapsId("mId")
 	@JoinColumn(name = "movieId")
+
 	public Movie movie2;	
 	
+
+
+
 	@ManyToOne
 	@MapsId("uId")
 	@JoinColumn(name = "userId")
@@ -44,5 +50,7 @@ public class MovieUserRating {
 	public void setUser(User user) {
 		this.user = user;
 	}
+
 	
+
 }
