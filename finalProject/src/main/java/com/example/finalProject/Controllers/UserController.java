@@ -16,8 +16,8 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping("/register")
-    public void register(@RequestBody User user){
-        userService.register(user);
+    public User register(@RequestBody User user){
+        return userService.register(user);
     }
     @GetMapping(path = "confirm")
     public ResponseEntity<String> confirm(@RequestParam("token") String token) {

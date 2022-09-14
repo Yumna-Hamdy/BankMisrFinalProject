@@ -32,12 +32,15 @@ public class UserService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String email) {
-        User user = userRepository.findByEmail(email).orElseThrow(()->new ResponseStatusException(HttpStatus.BAD_REQUEST,"user with same email not found"));
-        System.out.println(user);
+        boolean userExists =userRepository.findByEmail(email).isPresent();
+        if (!userExists){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"user with same email not found");
+        }
+        User user = userRepository.findByEmail(email).get();
         return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), new ArrayList<>());
     }
 
-    public void register(User user) {
+    public User register(User user) {
         boolean isEmailValid = userValidation.emailValidation(user.getEmail());
         boolean isMobileValid = userValidation.mobileValidation(user.getMobile());
         boolean userExists =userRepository.findByEmail(user.getEmail()).isPresent();
@@ -57,6 +60,7 @@ public class UserService implements UserDetailsService {
                 token, LocalDateTime.now(),LocalDateTime.now().plusMinutes(15),user
         );
         confirmationTokenService.saveConfirmationToken(confirmationToken);
+        return user;
     }
     @Transactional
     public String confirmToken(String token) {
