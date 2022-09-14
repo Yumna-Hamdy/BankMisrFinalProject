@@ -16,16 +16,12 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping("/register")
-    public User register(@RequestBody User user){
-        return userService.register(user);
+    public void register(@RequestBody User user){
+        userService.register(user);
     }
     @GetMapping(path = "confirm")
     public ResponseEntity<String> confirm(@RequestParam("token") String token) {
         return ResponseEntity.ok().body(userService.confirmToken(token));
-    }
-    @GetMapping(path = "/test")
-    public String test(){
-        return "h3l";
     }
 
 

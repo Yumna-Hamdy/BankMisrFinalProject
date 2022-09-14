@@ -37,7 +37,7 @@ public class UserService implements UserDetailsService {
         return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), new ArrayList<>());
     }
 
-    public User register(User user) {
+    public void register(User user) {
         boolean isEmailValid = userValidation.emailValidation(user.getEmail());
         boolean isMobileValid = userValidation.mobileValidation(user.getMobile());
         boolean userExists =userRepository.findByEmail(user.getEmail()).isPresent();
@@ -57,7 +57,6 @@ public class UserService implements UserDetailsService {
                 token, LocalDateTime.now(),LocalDateTime.now().plusMinutes(15),user
         );
         confirmationTokenService.saveConfirmationToken(confirmationToken);
-        return user;
     }
     @Transactional
     public String confirmToken(String token) {
