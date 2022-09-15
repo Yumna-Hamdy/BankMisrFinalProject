@@ -20,9 +20,9 @@ public class UserController {
     public User register(@RequestBody User user){
         return userService.register(user);
     }
-    @GetMapping(path = "confirm")
-    public ResponseEntity<String> confirm(@RequestParam("token") String token) {
-        return ResponseEntity.ok().body(userService.confirmToken(token));
+    @GetMapping(path = "/confirm")
+    public String confirm(@RequestParam("token") String token) {
+        return userService.confirmToken(token);
     }
 
 

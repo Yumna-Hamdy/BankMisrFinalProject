@@ -9,7 +9,7 @@ public class RegisteredDetails {
     public String username;
     public String email;
     public String mobile;
-    public Long user_id;
+    public int user_id;
     public int expire;
 
 }
